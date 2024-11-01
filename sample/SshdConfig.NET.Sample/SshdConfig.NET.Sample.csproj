@@ -7,6 +7,15 @@
         <Nullable>enable</Nullable>
         <PublishAot>true</PublishAot>
         <InvariantGlobalization>true</InvariantGlobalization>
+        <Version>1.0.0</Version>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SSH.NET" Version="2024.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\SshdConfig.NET\SshdConfig.NET.csproj" />
+    </ItemGroup>
 
 </Project>
