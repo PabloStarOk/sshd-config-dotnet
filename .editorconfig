@@ -280,6 +280,14 @@ dotnet_naming_style.internal_error_style.capitalization  = pascal_case
 dotnet_naming_style.internal_error_style.required_prefix = ____INTERNAL_ERROR____
 dotnet_naming_style.internal_error_style.required_suffix = ____INTERNAL_ERROR____
 
+# Private fields - Camel case with prefix '_'
+dotnet_naming_style.camel_case_style_with_prefix__.capitalization = camel_case
+dotnet_naming_style.camel_case_style_with_prefix__.required_prefix = _
+
+# Private static fields - Camel case with prefix 's_' 
+dotnet_naming_style.camel_case_style_with_prefix_s_.capitalization = camel_case
+dotnet_naming_style.camel_case_style_with_prefix_s_.required_prefix = s_
+
 ##########################################
 # .NET Design Guideline Field Naming Rules
 # Naming rules for fields follow the .NET Framework design guidelines
@@ -345,13 +353,21 @@ dotnet_naming_rule.stylecop_instance_fields_must_be_private_rule.symbols        
 dotnet_naming_rule.stylecop_instance_fields_must_be_private_rule.style                 = disallowed_style
 dotnet_naming_rule.stylecop_instance_fields_must_be_private_rule.severity              = error
 
-# Private fields must be camelCase
+# Private fields must be camelCase with prefix '_'
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1306.md
 dotnet_naming_symbols.stylecop_private_fields_group.applicable_accessibilities = private
 dotnet_naming_symbols.stylecop_private_fields_group.applicable_kinds           = field
-dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule.symbols     = stylecop_private_fields_group
-dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule.style       = camel_case_style
-dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule.severity    = warning
+dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule_with_prefix__.symbols     = stylecop_private_fields_group
+dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule_with_prefix__.style       = camel_case_style_with_prefix__
+dotnet_naming_rule.stylecop_private_fields_must_be_camel_case_rule_with_prefix__.severity    = warning
+
+# Private static fields must be camelCase with prefix 's_'
+dotnet_naming_symbols.stylecop_private_static_fields_group.applicable_accessibilities = private
+dotnet_naming_symbols.stylecop_private_static_fields_group.applicable_kinds           = field
+dotnet_naming_symbols.stylecop_private_static_fields_group.required_modifiers         = static
+dotnet_naming_rule.stylecop_private_static_fields_must_be_camel_case_rule_with_prefix__.symbols     = stylecop_private_static_fields_group
+dotnet_naming_rule.stylecop_private_static_fields_must_be_camel_case_rule_with_prefix__.style       = camel_case_style_with_prefix_s_
+dotnet_naming_rule.stylecop_private_static_fields_must_be_camel_case_rule_with_prefix__.severity    = warning
 
 # Local variables must be camelCase
 # https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/SA1312.md
