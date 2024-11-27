@@ -1,6 +1,6 @@
-﻿using SshdConfig.NET.Configuration.Algorithms;
+﻿using SshdConfig.NET.Algorithms;
 
-namespace SshdConfig.NET.Configuration;
+namespace SshdConfig.NET;
 
 public class SshdConfiguration
 {

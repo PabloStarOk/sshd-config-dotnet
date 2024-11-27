@@ -1,7 +1,7 @@
 using System.Collections.Immutable;
-using KexAlgorithms = SshdConfig.NET.Configuration.Algorithms.KeyExchange;
+using KexAlgorithms = SshdConfig.NET.Algorithms.KeyExchange;
 
-namespace SshdConfig.NET.Configuration.Helpers;
+namespace SshdConfig.NET.Helpers;
 
 public class KeyExchangeHelper
 {

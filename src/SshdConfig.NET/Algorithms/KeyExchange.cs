@@ -1,4 +1,4 @@
-﻿namespace SshdConfig.NET.Configuration.Algorithms;
+﻿namespace SshdConfig.NET.Algorithms;
 
 public enum KeyExchange
 {
