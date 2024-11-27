@@ -1,4 +1,4 @@
-﻿using SshdConfig.NET.Configuration.Enums;
+﻿using SshdConfig.NET.Configuration.Algorithms;
 
 namespace SshdConfig.NET.Configuration;
 
@@ -38,16 +38,16 @@ public class SshdConfiguration
     public string LogLevel { get; internal set; } = "INFO"; // Default is INFO.
 
     // Key Exchange and Host Key Algorithms
-    public List<KeyExchange.Algorithms> KexAlgorithms { get; } =
+    public List<KeyExchange> KexAlgorithms { get; } =
     [
-        KeyExchange.Algorithms.SntRup761X25519Sha512,
-        KeyExchange.Algorithms.SntRup761X25519Sha512OpensshCom,
-        KeyExchange.Algorithms.MlKem768X25519Sha256,
-        KeyExchange.Algorithms.Curve25519Sha256,
-        KeyExchange.Algorithms.Curve25519Sha256LibSshOrg,
-        KeyExchange.Algorithms.EcdhSha2NiStp256,
-        KeyExchange.Algorithms.EcdhSha2NiStp384,
-        KeyExchange.Algorithms.EcdhSha2NiStp521
+        KeyExchange.SntRup761X25519Sha512,
+        KeyExchange.SntRup761X25519Sha512OpensshCom,
+        KeyExchange.MlKem768X25519Sha256,
+        KeyExchange.Curve25519Sha256,
+        KeyExchange.Curve25519Sha256LibSshOrg,
+        KeyExchange.EcdhSha2NiStp256,
+        KeyExchange.EcdhSha2NiStp384,
+        KeyExchange.EcdhSha2NiStp521
     ];
     public List<string> Ciphers { get; } =
     [
