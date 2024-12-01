@@ -2,6 +2,8 @@
 
 namespace SshdConfig.NET;
 
+using Models;
+
 public class SshdConfiguration
 {
     // Authentication Options
@@ -104,7 +106,7 @@ public class SshdConfiguration
     // Connection Settings
     public List<int> Protocol { get; } = [2,1]; // Default is 2,1
     public int LoginGraceTime { get; internal set; } = 120; // Default is 20 seconds
-    public string MaxStartups { get; internal set; } = "10:30:100"; // Default is 10:30:100. // TODO: Implement a custom class to include each value separated by ':'
+    public MaxStartups MaxStartups { get; internal set; } = MaxStartups.Parse("10:30:100"); // Default is 10:30:100.
     public int MaxSessions { get; internal set; } = 10; // Default is 10.
     public int ClientInterval { get; internal set; } // Default is 0.
     public int ClientAliveCountMax { get; internal set; } = 3; // Default value is 3.
