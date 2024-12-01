@@ -38,60 +38,68 @@ public class SshdConfiguration
     public string LogLevel { get; internal set; } = "INFO"; // Default is INFO.
 
     // Key Exchange and Host Key Algorithms
-    public List<KeyExchange> KexAlgorithms { get; } =
+    public List<KeyExchangeAlgorithms> KexAlgorithms { get; } =
     [
-        KeyExchange.SntRup761X25519Sha512,
-        KeyExchange.SntRup761X25519Sha512OpensshCom,
-        KeyExchange.MlKem768X25519Sha256,
-        KeyExchange.Curve25519Sha256,
-        KeyExchange.Curve25519Sha256LibSshOrg,
-        KeyExchange.EcdhSha2NiStp256,
-        KeyExchange.EcdhSha2NiStp384,
-        KeyExchange.EcdhSha2NiStp521
+        KeyExchangeAlgorithms.SntRup761X25519Sha512,
+        KeyExchangeAlgorithms.SntRup761X25519Sha512OpensshCom,
+        KeyExchangeAlgorithms.MlKem768X25519Sha256,
+        KeyExchangeAlgorithms.Curve25519Sha256,
+        KeyExchangeAlgorithms.Curve25519Sha256LibSshOrg,
+        KeyExchangeAlgorithms.EcdhSha2NiStp256,
+        KeyExchangeAlgorithms.EcdhSha2NiStp384,
+        KeyExchangeAlgorithms.EcdhSha2NiStp521
     ];
-    public List<string> Ciphers { get; } =
+    public List<CiphersAlgorithms> Ciphers { get; } =
     [
-        "chacha20-poly1305@openssh.com",
-        "aes128-ctr",
-        "aes192-ctr",
-        "aes256-ctr",
-        "aes128-gcm@openssh.com",
-        "aes256-gcm@openssh.com"
-    ]; // TODO: Implement Ciphers with enums instead of just strings.
-    public List<string> Macs { get; } =
+        CiphersAlgorithms.ChaCha20Poly1305OpenSshCom,
+        CiphersAlgorithms.Aes128Ctr,
+        CiphersAlgorithms.Aes192Ctr,
+        CiphersAlgorithms.Aes256Ctr,
+        CiphersAlgorithms.Aes128GcmOpenSshCom,
+        CiphersAlgorithms.Aes256GcmOpenSshCom,
+    ];
+    public List<MacAlgorithms> Macs { get; } =
     [
-        "umac-64-etm@openssh.com",
-        "umac-128-etm@openssh.com",
-        "hmac-sha2-256-etm@openssh.com",
-        "hmac-sha2-512-etm@openssh.com",
-        "hmac-sha1-etm@openssh.com",
-        "umac-64@openssh.com",
-        "umac-128@openssh.com",
-        "hmac-sha2-256",
-        "hmac-sha2-512,hmac-sha1"
-    ]; // TODO: Implement MACs with enums instead of just strings.
+        MacAlgorithms.Umac64OpensshCom,
+        MacAlgorithms.Umac128OpensshCom,
+        MacAlgorithms.HmacSha2256EtmOpensshCom,
+        MacAlgorithms.HmacSha2512EtmOpensshCom,
+        MacAlgorithms.HmacSha1EtmOpensshCom,
+        MacAlgorithms.Umac64OpensshCom,
+        MacAlgorithms.Umac128OpensshCom,
+        MacAlgorithms.HmacSha2256,
+        MacAlgorithms.HmacSha2512,
+        MacAlgorithms.HmacSha1
+    ];
     public List<string> HostKey { get; } =
     [
         "/etc/ssh/ssh_host_ecdsa_key",
         "/etc/ssh/ssh_host_ed25519_key",
         "/etc/ssh/ssh_host_rsa_key"
-    ]; // TODO: Implement HostKey with enums instead of just strings.
-    public List<string> KeyAlgorithms { get; } =
+    ];
+
+    /// <summary>
+    /// Represents HostKey algorithms.
+    /// </summary>
+    public List<HostKeyAlgorithms> HKeyAlgorithms { get; } =
     [
-        "ssh-ed25519-cert-v01@openssh.com",
-        "ecdsa-sha2-nistp256-cert-v01@openssh.com",
-        "ecdsa-sha2-nistp384-cert-v01@openssh.com",
-        "ecdsa-sha2-nistp521-cert-v01@openssh.com",
-        "sk-ssh-ed25519-cert-v01@openssh.com",
-        "sk-ecdsa-sha2-nistp256-cert-v01@openssh.com",
-        "rsa-sha2-512-cert-v01@openssh.com",
-        "rsa-sha2-256-cert-v01@openssh.com",
-        "ssh-ed25519",
-        "ecdsa-sha2-nistp256", "ecdsa-sha2-nistp384", "ecdsa-sha2-nistp521",
-        "sk-ssh-ed25519@openssh.com",
-        "sk-ecdsa-sha2-nistp256@openssh.com",
-        "rsa-sha2-512", "rsa-sha2-256"
-    ]; // TODO: Implement KeyAlgorithms with enums instead of just strings.
+        HostKeyAlgorithms.SshEd25519CertV01OpensshCom,
+        HostKeyAlgorithms.EcdsaSha2Nistp256CertV01OpensshCom,
+        HostKeyAlgorithms.EcdsaSha2Nistp384CertV01OpensshCom,
+        HostKeyAlgorithms.EcdsaSha2Nistp521CertV01OpensshCom,
+        HostKeyAlgorithms.SkSshEd25519CertV01OpensshCom,
+        HostKeyAlgorithms.SkEcdsaSha2Nistp256CertV01OpensshCom,
+        HostKeyAlgorithms.RsaSha2512CertV01OpensshCom,
+        HostKeyAlgorithms.RsaSha2256CertV01OpensshCom,
+        HostKeyAlgorithms.SshEd25519,
+        HostKeyAlgorithms.EcdsaSha2Nistp256,
+        HostKeyAlgorithms.EcdsaSha2Nistp384,
+        HostKeyAlgorithms.EcdsaSha2Nistp521,
+        HostKeyAlgorithms.SkSshEd25519OpensshCom,
+        HostKeyAlgorithms.SkEcdsaSha2Nistp256OpensshCom,
+        HostKeyAlgorithms.RsaSha2512,
+        HostKeyAlgorithms.RsaSha2256
+    ];
 
     // Connection Settings
     public List<int> Protocol { get; } = [2,1]; // Default is 2,1
