@@ -1,26 +1,26 @@
 using System.Collections.Immutable;
-using KexAlgorithms = SshdConfig.NET.Algorithms.KeyExchange;
+using SshdConfig.NET.Algorithms;
 
 namespace SshdConfig.NET.Helpers;
 
 public class KeyExchangeHelper
 {
-    private static readonly ImmutableDictionary<KexAlgorithms, string> Algorithms = ImmutableDictionary.CreateRange
+    private static readonly ImmutableDictionary<KeyExchangeAlgorithms, string> Algorithms = ImmutableDictionary.CreateRange
     (
-        new Dictionary<KexAlgorithms, string>()
+        new Dictionary<KeyExchangeAlgorithms, string>()
         {
-            { KexAlgorithms.SntRup761X25519Sha512, "sntrup761x25519-sha512" },
-            { KexAlgorithms.SntRup761X25519Sha512OpensshCom, "sntrup761x25519-sha512@openssh.com" },
-            { KexAlgorithms.MlKem768X25519Sha256, "mlkem768x25519-sha256" },
-            { KexAlgorithms.Curve25519Sha256, "curve25519-sha256" },
-            { KexAlgorithms.Curve25519Sha256LibSshOrg, "curve25519-sha256@libssh.org" },
-            { KexAlgorithms.EcdhSha2NiStp256, "ecdh-sha2-nistp256" },
-            { KexAlgorithms.EcdhSha2NiStp384, "ecdh-sha2-nistp384" },
-            { KexAlgorithms.EcdhSha2NiStp521, "ecdh-sha2-nistp521" }
+            { KeyExchangeAlgorithms.SntRup761X25519Sha512, "sntrup761x25519-sha512" },
+            { KeyExchangeAlgorithms.SntRup761X25519Sha512OpensshCom, "sntrup761x25519-sha512@openssh.com" },
+            { KeyExchangeAlgorithms.MlKem768X25519Sha256, "mlkem768x25519-sha256" },
+            { KeyExchangeAlgorithms.Curve25519Sha256, "curve25519-sha256" },
+            { KeyExchangeAlgorithms.Curve25519Sha256LibSshOrg, "curve25519-sha256@libssh.org" },
+            { KeyExchangeAlgorithms.EcdhSha2NiStp256, "ecdh-sha2-nistp256" },
+            { KeyExchangeAlgorithms.EcdhSha2NiStp384, "ecdh-sha2-nistp384" },
+            { KeyExchangeAlgorithms.EcdhSha2NiStp521, "ecdh-sha2-nistp521" }
         }
     );
 
-    public static bool GetAlgorithmString(KexAlgorithms algorithm, out string kexAlgorithm)
+    public static bool GetAlgorithmString(KeyExchangeAlgorithms algorithm, out string kexAlgorithm)
     {
         if (Algorithms.TryGetValue(algorithm, out kexAlgorithm))
             return true;
@@ -29,7 +29,7 @@ public class KeyExchangeHelper
         return false;
     }
 
-    public static bool GetAlgorithmEnum(string algorithmStr, out KexAlgorithms algorithm)
+    public static bool GetAlgorithmEnum(string algorithmStr, out KeyExchangeAlgorithms algorithm)
     {
         algorithm = default;
 
